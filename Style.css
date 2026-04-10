@@ -1,0 +1,102 @@
+body {
+  font-family: "Times New Roman", serif;
+  background: #eee;
+  margin: 0;
+}
+
+.sheet {
+  width: 700px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 25px;
+  border: 2px solid black;
+}
+
+/* Header */
+.top-header {
+  text-align: center;
+  border-bottom: 2px solid black;
+  margin-bottom: 15px;
+}
+
+.top-header h2 {
+  margin: 0;
+}
+
+.top-header h3 {
+  margin: 5px 0;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Info Table */
+.info td {
+  text-align: left;
+}
+
+/* Marks */
+.marks th {
+  background: #ddd;
+}
+
+/* Total Row */
+.total td {
+  font-weight: bold;
+}
+
+/* Summary */
+.summary td {
+  text-align: left;
+}
+
+/* Result */
+.pass {
+  color: green;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btns {
+  text-align: center;
+  margin: 15px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .sheet {
+    width: 95%;
+    padding: 15px;
+  }
+
+  td, th {
+    font-size: 14px;
+  }
+}
