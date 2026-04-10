@@ -45,19 +45,25 @@ function addStudent() {
 // Search result
 function searchResult() {
   let admNo = document.getElementById("admNo").value;
-  let data = getData();
+  let data = JSON.parse(localStorage.getItem("students")) || [];
 
   let student = data.find(s => s.adm === admNo);
-
   let box = document.getElementById("resultBox");
 
   if (student) {
     box.innerHTML = `
       <h2>${student.name}</h2>
+
       <table>
-        <tr><th>Admission No</th><td>${student.adm}</td></tr>
-        <tr><th>Class</th><td>${student.class}</td></tr>
-        <tr><th>Marks</th><td>${student.marks}/${student.total}</td></tr>
+        <tr><th>Subject</th><th>Marks</th></tr>
+        <tr><td>Fiqh</td><td>${student.subjects.fiqh}</td></tr>
+        <tr><td>Thareeq</td><td>${student.subjects.thareeq}</td></tr>
+        <tr><td>Duroos</td><td>${student.subjects.duroos}</td></tr>
+        <tr><td>Lisan</td><td>${student.subjects.lisan}</td></tr>
+      </table>
+
+      <table>
+        <tr><th>Total</th><td>${student.total}</td></tr>
         <tr><th>Percentage</th><td>${student.percentage}%</td></tr>
         <tr><th>Status</th><td>${student.status}</td></tr>
         <tr><th>Total Ajar</th><td>${student.ajar}</td></tr>
@@ -67,7 +73,6 @@ function searchResult() {
     box.innerHTML = "<p style='color:red;'>No Result Found</p>";
   }
 }
-
 // Print
 function printResult() {
   window.print();
