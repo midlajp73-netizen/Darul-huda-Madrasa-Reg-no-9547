@@ -3,90 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Result</title>
+<title>Madrasa Result</title>
+
 <link rel="stylesheet" href="style.css">
 
+<!-- PDF Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
 
+<!-- 🔍 Search Box -->
+<div class="search-box" style="text-align:center; margin:20px;">
+  <input type="text" id="admNo" placeholder="Enter Admission No" style="padding:10px; width:200px;">
+  <button onclick="searchResult()" style="padding:10px;">🔍 Search</button>
+</div>
+
+<!-- 📄 Result Sheet -->
 <div class="sheet" id="resultBox">
 
-  <!-- Top Header -->
-  <div class="sheet" id="resultBox">
+  <!-- Header -->
   <div class="top-header">
     <h2>دار الهدى مدرسة، بونور</h2>
     <p>Darul Huda Madrasa, Poonoor</p>
     <h3>EXAMINATION RESULT</h3>
   </div>
 
-  <p style="text-align:center;">Enter Admission No and Search</p>
-</div>
-  <!-- Student Info -->
-  <table class="info">
-    <tr>
-      <td><b>Name</b></td><td>Muhammed Fawzan</td>
-      <td><b>Class</b></td><td>8</td>
-    </tr>
-    <tr>
-      <td><b>Roll No</b></td><td>101</td>
-      <td><b>Rank</b></td><td>8</td>
-    </tr>
-  </table>
-
-  <!-- Marks Table -->
-  <table class="marks">
-    <tr>
-      <th>Subject</th>
-      <th>Max</th>
-      <th>Obtained</th>
-    </tr>
-
-    <tr><td>Fiqh</td><td>50</td><td>90</td></tr>
-    <tr><td>Thareeq</td><td>50</td><td>85</td></tr>
-    <tr><td>Duroos</td><td>50</td><td>88</td></tr>
-    <tr><td>Lisan</td><td>50</td><td>87</td></tr>
-
-    
-
-  <!-- Summary -->
-  <table class="summary">
-    <tr>
-      <td><b>Percentage</b></td>
-      <td>87.5%</td>
-    </tr>
-    <tr>
-      <td><b>Total Ajar</b></td>
-      <td>163</td>
-    </tr>
-    <tr>
-      <td><b>Result</b></td>
-      <td class="pass">PASS</td>
-    </tr>
-  </table>
-
-  <!-- Signature -->
-  <div class="footer">
-    <div>Class Teacher</div>
-    <div>Principal</div>
-  </div>
+  <!-- Default Message -->
+  <p style="text-align:center; margin-top:30px;">
+    Enter Admission Number to View Result
+  </p>
 
 </div>
 
-<!-- Buttons -->
-<div class="btns">
-  <button onclick="window.print()">🖨 Print</button>
+<!-- 🔘 Buttons -->
+<div class="btns" style="text-align:center; margin:20px;">
+  <button onclick="printResult()">🖨 Print</button>
   <button onclick="downloadPDF()">📥 Download PDF</button>
 </div>
 
+<!-- 📥 PDF Script -->
 <script>
 function downloadPDF() {
   const element = document.getElementById("resultBox");
-  html2pdf().from(element).save("Result.pdf");
+  html2pdf().set({
+    margin: 5,
+    filename: 'Madrasa_Result.pdf',
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  }).from(element).save();
 }
 </script>
-<script src="script.js"></script> 
-  
+
+<!-- ⚙ Main Script -->
+<script src="script.js"></script>
+
 </body>
 </html>
