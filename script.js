@@ -27,7 +27,7 @@ function addStudent() {
   };
 
   let totalMarks = Object.values(subjects).reduce((a, b) => a + b, 0);
-  let maxTotal = 500;
+  let maxTotal = 400;
 
   let percentage = ((totalMarks / maxTotal) * 100).toFixed(2);
 
