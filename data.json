@@ -1,0 +1,4 @@
+const students = [
+ {name: "Ali", mark: 90},
+ {name: "Ahmed", mark: 85}
+];
